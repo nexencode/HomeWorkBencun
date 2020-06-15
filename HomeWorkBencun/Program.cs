@@ -11,10 +11,14 @@ namespace HomeWorkBencun
     {
         static void Main(string[] args)
         {
+            //First part of home work
+            #region 
             User user = GetAndDeserializeUserById(2).GetAwaiter().GetResult();
             user.PrintUser();
+            #endregion
 
-
+            //Second part of home work
+            #region 
             UserFetcher userFetcher = new UserFetcher();
 
             userFetcher.NewUserAvailable += OnNewUser;
@@ -22,6 +26,8 @@ namespace HomeWorkBencun
             List<int> ids = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 
             userFetcher.GetAllUsers(ids);
+            #endregion
+
 
             Console.ReadKey();
         }
