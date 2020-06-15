@@ -44,7 +44,7 @@ namespace HomeWorkBencun
 
             if (id >= 1 && id <= 10)
             {
-                Console.WriteLine($"Sending requests for User with ID:  {id}.");
+                Console.WriteLine($"Sending requests for User with ID:  {id}.......");
 
                 userJson = await http.GetStringAsync($"https://jsonplaceholder.typicode.com/users/{id}");
 
