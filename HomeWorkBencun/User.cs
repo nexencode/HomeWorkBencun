@@ -20,10 +20,7 @@ namespace HomeWorkBencun
         #endregion
 
         #region Constructors
-        public User()
-        {
-
-        }
+        public User() {}
 
         public User(int iD, string name, string userName, string email)
         {
@@ -39,8 +36,6 @@ namespace HomeWorkBencun
         /// <summary>
         /// Accept parameter int id between 1 - 10 and Return User as JSON string 
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
         public static async Task<string> GetUserJSONById(int id)
         {
             string userJson;
@@ -49,11 +44,11 @@ namespace HomeWorkBencun
 
             if (id >= 1 && id <= 10)
             {
-                //Console.WriteLine($"sending requests for:  {id}");
+                Console.WriteLine($"sending requests for:  {id}");
 
                 userJson = await http.GetStringAsync($"https://jsonplaceholder.typicode.com/users/{id}");
 
-                //Console.WriteLine($"srequests for:  {id} done");
+                Console.WriteLine($"srequests for:  {id} done");
             }
             else
             {
@@ -64,13 +59,14 @@ namespace HomeWorkBencun
             return userJson;
         }
 
+        /// <summary>
+        /// Prosleđeni JSON string deserijalizuje u objekat klase User
+        /// </summary>
         public static User DeserializeUserJSON(string userJson)
         {
+            User user = JsonConvert.DeserializeObject<User>(userJson);
 
-            User s1 = JsonConvert.DeserializeObject<User>(userJson);
-
-            return s1;
-
+            return user;
         }
 
 

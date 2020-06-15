@@ -11,13 +11,13 @@ namespace HomeWorkBencun
     {
         static void Main(string[] args)
         {
+            UserFetcher userFetcher = new UserFetcher();
 
-            var u2 = GetAndDeserializeUserById(2).GetAwaiter().GetResult();
+            userFetcher.NewUserAvailable += OnNewUser;
 
-            u2.PrintUser();
+            List<int> ids = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
-            Console.WriteLine($"============================");
-
+            userFetcher.GetAllUsers(ids);
 
             Console.ReadKey();
         }
@@ -32,6 +32,15 @@ namespace HomeWorkBencun
             User u = User.DeserializeUserJSON(userString);
 
             return u;
+        }
+
+        public static void OnNewUser(object sender, UserEventArgs e)
+        {
+            Console.WriteLine($"-----------------------------");
+
+            e.User.PrintUser();
+
+            Console.WriteLine($"-----------------------------");
         }
     }
 }
