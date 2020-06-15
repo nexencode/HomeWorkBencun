@@ -44,11 +44,11 @@ namespace HomeWorkBencun
 
             if (id >= 1 && id <= 10)
             {
-                Console.WriteLine($"sending requests for:  {id}");
+                Console.WriteLine($"Sending requests for User with ID:  {id}.");
 
                 userJson = await http.GetStringAsync($"https://jsonplaceholder.typicode.com/users/{id}");
 
-                Console.WriteLine($"srequests for:  {id} done");
+                Console.WriteLine($"Requests for User with ID:  {id} is done.");
             }
             else
             {
@@ -72,7 +72,7 @@ namespace HomeWorkBencun
 
         public void PrintUser()
         {
-            Console.WriteLine($"Id: {ID}, Name: {Name}, User name: {UserName}, Email: {Email}.");
+            Console.WriteLine($"Id: {ID}, Name: {Name}, UserName: {UserName}, Email: {Email}.");
         }
         #endregion
 

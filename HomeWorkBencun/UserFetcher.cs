@@ -14,7 +14,7 @@ namespace HomeWorkBencun
         {
             foreach (int id in usersIdList)
             {
-                var user = await Program.GetAndDeserializeUserById(id);
+                var user = await UserRepository.GetAndDeserializeUserById(id);
 
                 var del = NewUserAvailable as EventHandler<UserEventArgs>;
 

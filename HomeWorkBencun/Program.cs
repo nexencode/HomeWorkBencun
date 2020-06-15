@@ -15,7 +15,7 @@ namespace HomeWorkBencun
 
             userFetcher.NewUserAvailable += OnNewUser;
 
-            List<int> ids = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            List<int> ids = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 
             userFetcher.GetAllUsers(ids);
 
@@ -34,7 +34,7 @@ namespace HomeWorkBencun
             return u;
         }
 
-        public static void OnNewUser(object sender, UserEventArgs e)
+        public static void OnNewUser(object s, UserEventArgs e)
         {
             Console.WriteLine($"-----------------------------");
 
