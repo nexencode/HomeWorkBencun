@@ -51,7 +51,6 @@
     <Compile Include="User.cs" />
     <Compile Include="UserEventArgs.cs" />
     <Compile Include="UserFetcher.cs" />
-    <Compile Include="UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
