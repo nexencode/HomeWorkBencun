@@ -11,6 +11,10 @@ namespace HomeWorkBencun
     {
         static void Main(string[] args)
         {
+            User user = GetAndDeserializeUserById(2).GetAwaiter().GetResult();
+            user.PrintUser();
+
+
             UserFetcher userFetcher = new UserFetcher();
 
             userFetcher.NewUserAvailable += OnNewUser;
