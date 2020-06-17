@@ -29,13 +29,13 @@ namespace HomeWorkBencun
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"-----------------------------");
+                    Console.WriteLine($"=======================");
 
                     Console.WriteLine(ex.Message);
 
                     Console.WriteLine($"There is no user with id: {id}");
 
-                    Console.WriteLine($"-----------------------------");
+                    Console.WriteLine($"=======================");
 
                 }
             }

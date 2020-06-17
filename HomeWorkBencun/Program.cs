@@ -17,6 +17,9 @@ namespace HomeWorkBencun
             user.PrintUser();
             #endregion
 
+            Console.WriteLine($"==============================");
+
+
             //Second part of home work
             #region 
             UserFetcher userFetcher = new UserFetcher();
