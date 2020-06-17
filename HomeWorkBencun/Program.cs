@@ -13,7 +13,7 @@ namespace HomeWorkBencun
         {
             //First part of home work
             #region 
-            User user = GetAndDeserializeUserById(2).GetAwaiter().GetResult();
+            User user = GetAndDeserializeUserById(3).GetAwaiter().GetResult();
             user.PrintUser();
             #endregion
 
@@ -23,12 +23,15 @@ namespace HomeWorkBencun
 
             userFetcher.NewUserAvailable += OnNewUser;
 
-            List<int> ids = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 
-            userFetcher.GetAllUsers(ids);
+                List<int> ids = new List<int>() { 2, 4, 11, 5, 15, 6, 19 };
+
+                userFetcher.GetAllUsers(ids).GetAwaiter().GetResult();
+
             #endregion
 
 
+            Console.WriteLine("Press any key to exit from application...");
             Console.ReadKey();
         }
 
@@ -37,6 +40,7 @@ namespace HomeWorkBencun
         /// </summary>
         public static async Task<User> GetAndDeserializeUserById(int id)
         {
+
             string userString = await User.GetUserJSONById(id);
 
             User u = User.DeserializeUserJSON(userString);
@@ -52,5 +56,6 @@ namespace HomeWorkBencun
 
             Console.WriteLine($"-----------------------------");
         }
+
     }
 }

@@ -10,17 +10,33 @@ namespace HomeWorkBencun
     {
         public event EventHandler<UserEventArgs> NewUserAvailable;
 
-        public async void GetAllUsers(List<int> usersIdList)
+        public async Task GetAllUsers(List<int> usersIdList)
         {
             foreach (int id in usersIdList)
             {
-                var user = await Program.GetAndDeserializeUserById(id);
-
-                var del = NewUserAvailable as EventHandler<UserEventArgs>;
-
-                if (NewUserAvailable != null)
+                try
                 {
-                    del(this, new UserEventArgs(user));
+                    if (id >= 1 && id <= 10)
+                    {
+                        var user = await Program.GetAndDeserializeUserById(id);
+
+                        NewUserAvailable?.Invoke(this, new UserEventArgs(user));
+                    }
+                    else
+                    {
+                        var user = await Program.GetAndDeserializeUserById(id);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"-----------------------------");
+
+                    Console.WriteLine(ex.Message);
+
+                    Console.WriteLine($"There is no user with id: {id}");
+
+                    Console.WriteLine($"-----------------------------");
+
                 }
             }
         }

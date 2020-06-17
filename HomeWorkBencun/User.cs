@@ -38,23 +38,13 @@ namespace HomeWorkBencun
         /// </summary>
         public static async Task<string> GetUserJSONById(int id)
         {
-            string userJson;
 
             HttpClient http = new HttpClient();
+                    Console.WriteLine($"Sending requests for User with ID:  {id}.");
 
-            if (id >= 1 && id <= 10)
-            {
-                Console.WriteLine($"Sending requests for User with ID:  {id}.......");
+            string userJson = await http.GetStringAsync($"https://jsonplaceholder.typicode.com/users/{id}");
 
-                userJson = await http.GetStringAsync($"https://jsonplaceholder.typicode.com/users/{id}");
-
-                Console.WriteLine($"Requests for User with ID:  {id} is done.");
-            }
-            else
-            {
-                userJson = "";
-                Console.WriteLine("There is no User with that id.");
-            }
+                    Console.WriteLine($"Requests for User with ID:  {id} is done.");
             //Console.WriteLine(userJson);
             return userJson;
         }
