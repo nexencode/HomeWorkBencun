@@ -27,7 +27,7 @@ namespace HomeWorkBencun
             userFetcher.NewUserAvailable += OnNewUser;
 
 
-            List<int> ids = new List<int>() { 2, 4, 11, 5, 15, 6, 19 };
+            List<int> ids = new List<int>() { 1, 3, 2, 4, 11, 5, 15, 6, 19 };
 
             userFetcher.GetAllUsers(ids).GetAwaiter().GetResult();
 
@@ -57,7 +57,7 @@ namespace HomeWorkBencun
 
             e.User.PrintUser();
 
-            Console.WriteLine($"-----------------------------");
+            Console.WriteLine($"================================================================");
         }
 
     }
