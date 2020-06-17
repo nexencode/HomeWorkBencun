@@ -20,7 +20,7 @@ namespace HomeWorkBencun
         #endregion
 
         #region Constructors
-        public User() {}
+        public User() { }
 
         public User(int iD, string name, string userName, string email)
         {
@@ -40,11 +40,11 @@ namespace HomeWorkBencun
         {
 
             HttpClient http = new HttpClient();
-                    Console.WriteLine($"Sending requests for User with ID:  {id}.");
+            Console.WriteLine($"Sending requests for User with ID:  {id}.");
 
             string userJson = await http.GetStringAsync($"https://jsonplaceholder.typicode.com/users/{id}");
 
-                    Console.WriteLine($"Requests for User with ID:  {id} is done.");
+            Console.WriteLine($"Requests for User with ID:  {id} is done.");
             //Console.WriteLine(userJson);
             return userJson;
         }
